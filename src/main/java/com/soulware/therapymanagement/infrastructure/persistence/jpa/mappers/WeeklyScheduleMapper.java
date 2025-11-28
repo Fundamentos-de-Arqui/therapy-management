@@ -3,12 +3,14 @@ package com.soulware.therapymanagement.infrastructure.persistence.jpa.mappers;
 import com.soulware.therapymanagement.domain.model.valueobjects.TimeSlot;
 import com.soulware.therapymanagement.domain.model.valueobjects.WeeklySchedule;
 import com.soulware.therapymanagement.infrastructure.persistence.jpa.entities.TherapyScheduleEntryEntity;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@ApplicationScoped
 public class WeeklyScheduleMapper {
     public WeeklyScheduleMapper() {}
 

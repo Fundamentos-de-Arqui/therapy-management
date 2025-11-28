@@ -6,12 +6,16 @@ import com.soulware.therapymanagement.domain.model.valueobjects.TimeSlot;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.SessionId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapistId;
 import com.soulware.therapymanagement.infrastructure.persistence.jpa.entities.SessionEntity;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
-public record SessionMapper(SessionStatusMapper statusMapper) {
+@ApplicationScoped
+public class SessionMapper {
     @Inject
-    public SessionMapper {
-    }
+    SessionStatusMapper statusMapper;
+
+    @Inject
+    public SessionMapper() {}
 
     /**
      * Converts a Session domain model to a SessionEntity persistence model.

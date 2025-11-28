@@ -9,13 +9,22 @@ import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapistId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapyPlanId;
 import com.soulware.therapymanagement.infrastructure.persistence.jpa.entities.TherapyPlanEntity;
 import com.soulware.therapymanagement.shared.domain.model.events.DomainEventPublisher;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
-public record TherapyPlanMapper(DomainEventPublisher eventPublisher, TherapyPlanStatusMapper statusMapper,
-                                WeeklyScheduleMapper scheduleMapper) {
+@ApplicationScoped
+public class TherapyPlanMapper{
     @Inject
-    public TherapyPlanMapper {
-    }
+    DomainEventPublisher eventPublisher;
+
+    @Inject
+    TherapyPlanStatusMapper statusMapper;
+
+    @Inject
+    WeeklyScheduleMapper scheduleMapper;
+
+    @Inject
+    public TherapyPlanMapper() {}
 
     /**
      * Converts a TherapyPlan domain model to a TherapyPlanEntity persistence model.

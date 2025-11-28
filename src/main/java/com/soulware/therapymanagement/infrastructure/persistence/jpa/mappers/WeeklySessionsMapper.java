@@ -8,14 +8,21 @@ import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapyPlanI
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.WeeklySessionsId;
 import com.soulware.therapymanagement.infrastructure.persistence.jpa.entities.WeeklySessionsEntity;
 import com.soulware.therapymanagement.shared.domain.model.events.DomainEventPublisher;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import java.util.stream.Collectors;
 
-public record WeeklySessionsMapper(SessionMapper sessionMapper, DomainEventPublisher eventPublisher) {
+@ApplicationScoped
+public class WeeklySessionsMapper {
     @Inject
-    public WeeklySessionsMapper {
-    }
+    SessionMapper sessionMapper;
+
+    @Inject
+    DomainEventPublisher eventPublisher;
+
+    @Inject
+    public WeeklySessionsMapper() {}
 
     /**
      * Converts a WeeklySessions domain model to a WeeklySessionsEntity persistence model.

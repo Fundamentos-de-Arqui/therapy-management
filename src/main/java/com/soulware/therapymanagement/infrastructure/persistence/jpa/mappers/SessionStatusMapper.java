@@ -3,13 +3,17 @@ package com.soulware.therapymanagement.infrastructure.persistence.jpa.mappers;
 import com.soulware.therapymanagement.domain.model.valueobjects.SessionStatus;
 import com.soulware.therapymanagement.infrastructure.persistence.jpa.entities.SessionStatusEntity;
 import com.soulware.therapymanagement.infrastructure.persistence.jpa.repositories.SessionStatusRepository;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityNotFoundException;
 
-public record SessionStatusMapper(SessionStatusRepository statusRepository) {
+@ApplicationScoped
+public class SessionStatusMapper {
     @Inject
-    public SessionStatusMapper {
-    }
+    SessionStatusRepository statusRepository;
+
+    @Inject
+    public SessionStatusMapper(){}
 
     /**
      * Converts a SessionStatusEntity persistence model to a SessionStatus domain model.
