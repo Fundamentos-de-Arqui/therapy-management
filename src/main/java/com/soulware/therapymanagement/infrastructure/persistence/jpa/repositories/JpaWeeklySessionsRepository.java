@@ -2,7 +2,7 @@ package com.soulware.therapymanagement.infrastructure.persistence.jpa.repositori
 
 import com.soulware.therapymanagement.domain.model.aggregates.WeeklySessions;
 import com.soulware.therapymanagement.domain.model.valueobjects.YearWeek;
-import com.soulware.therapymanagement.domain.model.valueobjects.ids.LegalResponsibleId;
+import com.soulware.therapymanagement.domain.model.valueobjects.ids.AssessmentId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.PatientId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapyPlanId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.WeeklySessionsId;
@@ -79,7 +79,7 @@ public class JpaWeeklySessionsRepository implements WeeklySessionsRepository {
     }
 
     @Override
-    public List<WeeklySessions> findByLegalResponsibleId(LegalResponsibleId legalResponsibleId) {
+    public List<WeeklySessions> findByLegalResponsibleId(AssessmentId legalResponsibleId) {
         return List.of();
     }
 

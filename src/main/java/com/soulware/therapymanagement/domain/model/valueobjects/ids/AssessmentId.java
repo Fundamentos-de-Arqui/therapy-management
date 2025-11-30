@@ -4,11 +4,8 @@ import com.soulware.therapymanagement.shared.domain.model.valueobjects.DomainId;
 
 import java.util.Objects;
 
-/**
- * Value Object representing the unique identity of a LegalResponsible Aggregate Root.
- */
-public record LegalResponsibleId(Long value) implements DomainId {
-    public LegalResponsibleId {
+public record AssessmentId(Long value) implements DomainId {
+    public AssessmentId {
         if (value == null || value <= 0) {
             throw new IllegalArgumentException("WeeklySessions ID value must be positive.");
         }
@@ -18,7 +15,7 @@ public record LegalResponsibleId(Long value) implements DomainId {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LegalResponsibleId that = (LegalResponsibleId) o;
+        AssessmentId that = (AssessmentId) o;
         return Objects.equals(value, that.value);
     }
 

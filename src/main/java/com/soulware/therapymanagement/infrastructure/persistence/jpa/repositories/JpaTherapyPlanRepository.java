@@ -44,11 +44,12 @@ public class JpaTherapyPlanRepository implements TherapyPlanRepository {
     @Override
     @Transactional(Transactional.TxType.REQUIRED)
     public void save(TherapyPlan plan) {
+        System.out.println("[REPOSITORY] saving...");
         if (plan == null) {
             return;
         }
         TherapyPlanEntity entity = therapyPlanMapper.toEntity(plan);
-        entityManager.merge(entity);
+        entityManager.persist(entity);
     }
 
     @Override

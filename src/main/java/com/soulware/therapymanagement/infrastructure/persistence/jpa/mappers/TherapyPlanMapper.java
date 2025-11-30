@@ -3,10 +3,7 @@ package com.soulware.therapymanagement.infrastructure.persistence.jpa.mappers;
 import com.soulware.therapymanagement.domain.model.aggregates.TherapyPlan;
 import com.soulware.therapymanagement.domain.model.valueobjects.TherapyPlanStatus;
 import com.soulware.therapymanagement.domain.model.valueobjects.WeeklySchedule;
-import com.soulware.therapymanagement.domain.model.valueobjects.ids.LegalResponsibleId;
-import com.soulware.therapymanagement.domain.model.valueobjects.ids.PatientId;
-import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapistId;
-import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapyPlanId;
+import com.soulware.therapymanagement.domain.model.valueobjects.ids.*;
 import com.soulware.therapymanagement.infrastructure.persistence.jpa.entities.TherapyPlanEntity;
 import com.soulware.therapymanagement.shared.domain.model.events.DomainEventPublisher;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -39,7 +36,6 @@ public class TherapyPlanMapper{
 
         TherapyPlanEntity entity = new TherapyPlanEntity();
 
-        entity.setId(domain.getId().value());
         entity.setAssignedTherapistId(domain.getAssignedTherapistId().value());
         entity.setPatientId(domain.getPatientId().value());
         entity.setLegalResponsibleId(domain.getLegalResponsibleId().value());

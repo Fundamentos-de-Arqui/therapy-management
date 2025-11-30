@@ -6,10 +6,7 @@ import com.soulware.therapymanagement.domain.model.events.TherapyPlanTherapistRe
 import com.soulware.therapymanagement.domain.model.exceptions.therapyplan.TherapyPlanAlreadyConcludedException;
 import com.soulware.therapymanagement.domain.model.valueobjects.TherapyPlanStatus;
 import com.soulware.therapymanagement.domain.model.valueobjects.WeeklySchedule;
-import com.soulware.therapymanagement.domain.model.valueobjects.ids.LegalResponsibleId;
-import com.soulware.therapymanagement.domain.model.valueobjects.ids.PatientId;
-import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapistId;
-import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapyPlanId;
+import com.soulware.therapymanagement.domain.model.valueobjects.ids.*;
 import com.soulware.therapymanagement.shared.domain.model.aggregates.BaseAbstractAggregate;
 import com.soulware.therapymanagement.shared.domain.model.events.DomainEventPublisher;
 

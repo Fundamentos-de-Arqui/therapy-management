@@ -1,5 +1,6 @@
 package com.soulware.therapymanagement.domain.model.events;
 
+import com.soulware.therapymanagement.domain.model.valueobjects.ids.AssessmentId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.LegalResponsibleId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapyPlanId;
 import com.soulware.therapymanagement.shared.domain.model.events.BaseAbstractDomainEvent;

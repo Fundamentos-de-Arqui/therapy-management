@@ -9,7 +9,7 @@ public class SessionStatusEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false, length = 20, unique = true) // VARCHAR(20) for the name
+    @Column(name = "name", nullable = false, length = 40, unique = true) // VARCHAR(20) for the name
     private String name;
 
     // Required by JPA

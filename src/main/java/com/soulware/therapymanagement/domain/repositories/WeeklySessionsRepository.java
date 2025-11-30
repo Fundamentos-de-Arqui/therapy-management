@@ -2,7 +2,7 @@ package com.soulware.therapymanagement.domain.repositories;
 
 import com.soulware.therapymanagement.domain.model.aggregates.WeeklySessions;
 import com.soulware.therapymanagement.domain.model.valueobjects.YearWeek;
-import com.soulware.therapymanagement.domain.model.valueobjects.ids.LegalResponsibleId;
+import com.soulware.therapymanagement.domain.model.valueobjects.ids.AssessmentId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.PatientId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapyPlanId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.WeeklySessionsId;
@@ -46,7 +46,7 @@ public interface WeeklySessionsRepository {
      * @param legalResponsibleId The ID of the guardian/responsible party.
      * @return A list of WeeklySessions aggregates.
      */
-    List<WeeklySessions> findByLegalResponsibleId(LegalResponsibleId legalResponsibleId);
+    List<WeeklySessions> findByLegalResponsibleId(AssessmentId legalResponsibleId);
 
     /**
      * Finds all WeeklySessions aggregates associated with a specific patient across different weeks.

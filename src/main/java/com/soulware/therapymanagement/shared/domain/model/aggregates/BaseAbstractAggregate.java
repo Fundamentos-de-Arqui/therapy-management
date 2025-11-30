@@ -3,6 +3,9 @@ package com.soulware.therapymanagement.shared.domain.model.aggregates;
 import com.soulware.therapymanagement.shared.domain.model.events.DomainEvent;
 import com.soulware.therapymanagement.shared.domain.model.events.DomainEventPublisher;
 import com.soulware.therapymanagement.shared.domain.model.valueobjects.DomainId;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 

@@ -3,6 +3,7 @@ package com.soulware.therapymanagement.infrastructure.persistence.jpa.mappers;
 import com.soulware.therapymanagement.domain.model.aggregates.WeeklySessions;
 import com.soulware.therapymanagement.domain.model.valueobjects.PlanWeek;
 import com.soulware.therapymanagement.domain.model.valueobjects.YearWeek;
+import com.soulware.therapymanagement.domain.model.valueobjects.ids.AssessmentId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.LegalResponsibleId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapyPlanId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.WeeklySessionsId;
