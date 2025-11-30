@@ -6,6 +6,8 @@ import com.soulware.therapymanagement.domain.model.valueobjects.ids.AssessmentId
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.PatientId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.TherapyPlanId;
 import com.soulware.therapymanagement.domain.model.valueobjects.ids.WeeklySessionsId;
+import com.soulware.therapymanagement.shared.domain.model.entities.SessionQueryResult;
+import com.soulware.therapymanagement.shared.infrastructure.PagedResult;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,6 +41,15 @@ public interface WeeklySessionsRepository {
      * @return An Optional containing the unique WeeklySessions aggregate.
      */
     Optional<WeeklySessions> findByPlanAndWeek(TherapyPlanId therapyPlanId, YearWeek yearWeek);
+
+    PagedResult<SessionQueryResult> findByFilters(
+            Long therapistId,
+            Long legalResponsibleId,
+            Long patientId,
+            String status,
+            int page,
+            int size
+    );
 
     /**
      * Finds all WeeklySessions aggregates associated with a specific legal guardian, 

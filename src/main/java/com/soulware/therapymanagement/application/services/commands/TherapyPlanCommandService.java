@@ -1,9 +1,8 @@
-package com.soulware.therapymanagement.application.services;
+package com.soulware.therapymanagement.application.services.commands;
 
 import com.soulware.therapymanagement.application.commands.CreateTherapyPlanCommand;
 import com.soulware.therapymanagement.application.commands.ScheduleEntryCommand;
 import com.soulware.therapymanagement.domain.model.aggregates.TherapyPlan;
-import com.soulware.therapymanagement.domain.model.aggregates.WeeklySessions;
 import com.soulware.therapymanagement.domain.model.valueobjects.TherapyPlanStatus;
 import com.soulware.therapymanagement.domain.model.valueobjects.TimeSlot;
 import com.soulware.therapymanagement.domain.model.valueobjects.WeeklySchedule;

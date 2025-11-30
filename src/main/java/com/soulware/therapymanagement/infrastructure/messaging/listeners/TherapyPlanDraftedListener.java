@@ -2,7 +2,7 @@ package com.soulware.therapymanagement.infrastructure.messaging.listeners;
 
 import com.soulware.therapymanagement.application.commands.CreateTherapyPlanCommand;
 import com.soulware.therapymanagement.application.commands.ScheduleEntryCommand;
-import com.soulware.therapymanagement.application.services.TherapyPlanCommandService;
+import com.soulware.therapymanagement.application.services.commands.TherapyPlanCommandService;
 import com.soulware.therapymanagement.infrastructure.messaging.dto.TherapyPlanDraftedMessage;
 
 import jakarta.enterprise.inject.spi.CDI;
