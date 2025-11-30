@@ -1,9 +1,5 @@
 package com.soulware.therapymanagement.infrastructure.messaging.dto;
 
-import com.soulware.therapymanagement.application.commands.ScheduleEntryCommand;
-
-import java.time.*;
-import java.util.List;
 import java.util.Map;
 
 public class TherapyPlanDraftedMessage {

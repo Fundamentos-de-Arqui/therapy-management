@@ -9,6 +9,7 @@ import java.time.ZonedDateTime;
 public class TherapyScheduleEntryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "entryId")
     private Long entryId;
 
     @Column(name = "plan_id", nullable = false)

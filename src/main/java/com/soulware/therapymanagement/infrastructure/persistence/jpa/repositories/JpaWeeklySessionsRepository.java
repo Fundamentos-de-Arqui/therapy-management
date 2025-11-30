@@ -31,11 +31,11 @@ import java.util.stream.Collectors;
 public class JpaWeeklySessionsRepository implements WeeklySessionsRepository {
     @PersistenceContext
     private EntityManager entityManager;
-    private final WeeklySessionsMapper weeklySessionsMapper;
 
     @Inject
-    public JpaWeeklySessionsRepository(WeeklySessionsMapper weeklySessionsMapper) {
-        this.weeklySessionsMapper = weeklySessionsMapper;
+    private WeeklySessionsMapper weeklySessionsMapper;
+
+    public JpaWeeklySessionsRepository() {
     }
 
     @Override
@@ -198,6 +198,22 @@ public class JpaWeeklySessionsRepository implements WeeklySessionsRepository {
     public Optional<WeeklySessions> findByPlanAndWeek(TherapyPlanId therapyPlanId, YearWeek yearWeek) {
         return Optional.empty();
     }
+
+    @Transactional(Transactional.TxType.SUPPORTS)
+    public Optional<TherapyScheduleEntryEntity> findEntryById(Long entryId) {
+        if (entryId == null) {
+            return Optional.empty();
+        }
+        TherapyScheduleEntryEntity entity = entityManager.find(TherapyScheduleEntryEntity.class, entryId);
+        return Optional.ofNullable(entity);
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void saveEntry(TherapyScheduleEntryEntity entry) {
+        if (entry == null) return;
+        entityManager.merge(entry); // merge funciona para actualizar o persistir
+    }
+
 
     @Override
     public List<WeeklySessions> findByLegalResponsibleId(AssessmentId legalResponsibleId) {
