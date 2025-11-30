@@ -1,9 +1,11 @@
 package com.soulware.therapymanagement.infrastructure.persistence.jpa.mappers;
 
+import com.soulware.therapymanagement.domain.model.valueobjects.SessionStatus;
 import com.soulware.therapymanagement.domain.model.valueobjects.TimeSlot;
 import com.soulware.therapymanagement.domain.model.valueobjects.WeeklySchedule;
 import com.soulware.therapymanagement.infrastructure.persistence.jpa.entities.TherapyScheduleEntryEntity;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import java.time.DayOfWeek;
 import java.util.List;
@@ -12,6 +14,9 @@ import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class WeeklyScheduleMapper {
+    @Inject
+    SessionStatusMapper sessionStatusMapper;
+
     public WeeklyScheduleMapper() {}
 
     /**
@@ -44,6 +49,8 @@ public class WeeklyScheduleMapper {
             return List.of();
         }
 
+        var defaultStatus = sessionStatusMapper.toEntity(SessionStatus.SCHEDULED);
+
         return domain.schedule().entrySet().stream()
                 .map(entry -> {
                     TherapyScheduleEntryEntity entity = new TherapyScheduleEntryEntity();
@@ -52,6 +59,7 @@ public class WeeklyScheduleMapper {
                     entity.setDay(entry.getKey().name());
                     entity.setStartTime(entry.getValue().start());
                     entity.setEndTime(entry.getValue().end());
+                    entity.setStatus(defaultStatus);
 
                     return entity;
                 })

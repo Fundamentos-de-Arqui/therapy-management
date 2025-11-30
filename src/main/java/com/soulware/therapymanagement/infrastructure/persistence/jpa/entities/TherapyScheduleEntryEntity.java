@@ -23,6 +23,10 @@ public class TherapyScheduleEntryEntity {
     @Column(name = "end_time", nullable = false)
     private ZonedDateTime endTime;
 
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "status_id", nullable = false)
+    private SessionStatusEntity status;
+
     @Column(name = "created_at", updatable = false, nullable = false)
     private ZonedDateTime createdAt;
 
@@ -46,6 +50,8 @@ public class TherapyScheduleEntryEntity {
     public void setEntryId(Long entryId) { this.entryId = entryId; }
     public Long getPlanId() { return planId; }
     public void setPlanId(Long planId) { this.planId = planId; }
+    public void setStatus(SessionStatusEntity status) { this.status = status; }
+    public SessionStatusEntity getStatus() { return status; }
     public String getDay() { return day; }
     public void setDay(String day) { this.day = day; }
     public ZonedDateTime getStartTime() { return startTime; }
