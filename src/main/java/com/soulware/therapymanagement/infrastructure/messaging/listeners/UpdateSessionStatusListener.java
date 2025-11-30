@@ -2,6 +2,7 @@ package com.soulware.therapymanagement.infrastructure.messaging.listeners;
 
 import com.soulware.therapymanagement.application.commands.UpdateSessionStatusCommand;
 import com.soulware.therapymanagement.application.services.commands.SessionCommandService;
+import com.soulware.therapymanagement.infrastructure.messaging.dto.UpdatedSessionResource;
 import com.soulware.therapymanagement.infrastructure.persistence.jpa.entities.TherapyScheduleEntryEntity;
 
 import jakarta.servlet.ServletContextEvent;
@@ -92,7 +93,16 @@ public class UpdateSessionStatusListener implements ServletContextListener {
 
             TherapyScheduleEntryEntity updatedEntry = service.updateSessionStatus(new UpdateSessionStatusCommand(req.id, req.status));
 
-            String respJson = jsonb.toJson(updatedEntry);
+            UpdatedSessionResource entry = new UpdatedSessionResource(
+                    updatedEntry.getEntryId(),
+                    updatedEntry.getPlanId(),
+                    updatedEntry.getStatus().getName(),
+                    updatedEntry.getDay().toUpperCase(),
+                    updatedEntry.getStartTime(),
+                    updatedEntry.getEndTime()
+            );
+
+            String respJson = jsonb.toJson(entry);
             producer.send(session.createTextMessage(respJson));
 
             logger.info("Updated session status and sent response to " + OUTPUT_QUEUE);
